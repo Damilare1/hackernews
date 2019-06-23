@@ -54,13 +54,15 @@ export default class App extends Component {
       "{ topStories(limit: 30, offset:" +
       offsetVal +
       "){ title descendants by{id} score url timeISO }}";
-    graphql(schema, query).then(result => {
-      this.setState({
-        topStories: result.data.topStories,
-        count: this.state.offset,
-        offset: offsetVal + 30
-      });
-    }).catch(error=>console.log(error));
+    graphql(schema, query)
+      .then(result => {
+        this.setState({
+          topStories: result.data.topStories,
+          count: this.state.offset,
+          offset: offsetVal + 30
+        });
+      })
+      .catch(error => console.log(error));
   }
 
   componentDidMount() {
@@ -101,15 +103,15 @@ export default class App extends Component {
             <p>login</p>
           </div>
           <div className="storyItems">
-            <ul className="story">
-              {topStories.map((result, index) => (
-                <li key={index + count}>
-                  <ul className="storyItem">
-                    <li>{index + count}.</li>
-                    <li>
+            <table>
+              <tbody className="story">
+                {topStories.map((result, index) => (
+                  <tr className="storyItem" key={index + count}>
+                    <td><span>{index + count + "."}</span></td>
+                    <td>
                       <FontAwesomeIcon icon={faCaretUp} />
-                    </li>
-                    <li>
+                    </td>
+                    <td>
                       <div className="content">
                         <h3>
                           {result.title}{" "}
@@ -130,14 +132,15 @@ export default class App extends Component {
                           </span>{" "}
                         </p>
                       </div>
-                    </li>
-                  </ul>
-                </li>
-              ))}{" "}
-              <li onClick={this.loadData}>
-                <p className="more">More</p>
-              </li>
-            </ul>
+                    </td>
+                  </tr>
+                ))}{" "}
+                <tr onClick={this.loadData}>
+                  <td></td>
+                  <td><p className="more">More</p></td>               
+                </tr>
+              </tbody>
+            </table>
           </div>
           <div className="footer">
             <div className="line" />
