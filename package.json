@@ -1,8 +1,11 @@
 {
-  "name": "hackerrank",
+  "name": "hackernews",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "dejavu-sans": "^1.0.0",
+    "graphql": "^14.3.1",
+    "graphqlhub-schemas": "^0.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"

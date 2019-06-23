@@ -1,33 +1,145 @@
-.App {
-  text-align: center;
-}
+@import-normalize;
+@import url(/node_modules/dejavu-sans/css/dejavu-sans.css);
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.body{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex: 1;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-family: 'DejaVu Sans', sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+h2{
+  font-size: .90em;
+
+}
+h3{
+  font-size: .75em;
+  font-weight: 200;
+}
+.content >h3>span{
+  color: #979692;
+  font-size: .90em;
+}
+.content >p{
+  color: #979692;
+  font-weight: 100;
+  font-size: .70em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.storyItem > li:first-of-type{
+  font-weight: 100;
+  font-size: .80em;
+  margin-left: 10px;
+}
+
+.story{
+  display: inline;
+  margin: 0;
+  padding:0;
+ }
+
+.story > li{
+  margin:0;
+  padding:0;
+}
+.storyItem{
+  margin:0;
+  padding:0;  
+}
+.containerField{
+  margin:0;
+  padding:0;
+  width: 100%;
+  background-color: #F6F5F0;
+}
+
+@media and screen (min-width:750px){
+  .containerField{
+    margin:0;
+    padding:0;
+    width: 85%;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+.header{
+  background-color: #FB6518; 
+  display: flex;
+  flex: 1;
+  align-items: center;
+  height: 1.8%;
+}
+
+.header > ul li:last-of-type{
+  margin-left: 60%;
+  
+}
+
+.header ul{
+  padding-left: 0;
+  font-size: 0.90em;
+  flex-grow: 1;
+}
+
+.line{
+  background-color: #FB6518;
+  height:0.15em;
+}
+
+.header > div{
+  display: flex;
+  align-items: center;
+}
+
+.logo img{
+  max-width: auto;
+  max-height: auto;
+  width: 15px;
+  height: 15px;
+  border: 1px solid white;
+  margin: 0 4px 0 2px;
+
+}
+
+ul{
+  display: flex;
+  list-style-type: none;
+  align-items: baseline;
+}
+ul li{
+  margin-left: 5px;
+}
+
+.storyItems > ul{
+  padding: 0;
+  margin:0;
+}
+
+.storyItems > ul li:nth-of-type(2){
+  align-self: baseline;
+ 
+}
+.storyItems > ul li img{
+  width: auto;
+  height: auto;
+  max-width: 10px;
+  max-height: 10px;
+}
+
+.content > h3{
+  margin-bottom: 0;
+}
+.content > p{
+  margin: 0;
+}
+.footer-menu >ul{
+  justify-content: center;
+  font-size: 0.75em;
+}
+
+.footer div:nth-of-type(3){
+  justify-content: center;
+  display: flex;
+  justify-content: center;
 }
