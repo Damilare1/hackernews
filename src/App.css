@@ -18,9 +18,10 @@ h3{
   font-size: .75em;
   font-weight: 200;
 }
-.content >h3>span{
+.content >h3>a{
   color: #979692;
   font-size: .90em;
+  text-decoration: none;
 }
 .content >p{
   color: #979692;
@@ -31,7 +32,6 @@ h3{
 .storyItem > li:first-of-type{
   font-weight: 100;
   font-size: .80em;
-  margin-left: 10px;
 }
 
 .story{
@@ -55,12 +55,21 @@ h3{
   background-color: #F6F5F0;
 }
 
-@media and screen (min-width:750px){
-  .containerField{
-    margin:0;
-    padding:0;
-    width: 85%;
-  }
+.headerItems{
+  display:flex;
+  flex-direction: column;
+  align-items: initial;
+  flex: 1;
+}
+
+.headerItems ul, h2{
+  margin:0;
+  padding: 0;
+}
+
+.headerItems h2{
+  align-self: flex-start;
+  margin-left: 5px;
 }
 
 .header{
@@ -68,18 +77,22 @@ h3{
   display: flex;
   flex: 1;
   align-items: center;
-  height: 1.8%;
+  height: 2.5%;
 }
 
-.header > ul li:last-of-type{
-  margin-left: 60%;
-  
+.header p{
+  align-self: center;
+  margin: 0px 5px 0 0; 
 }
 
-.header ul{
+
+
+.headerItems ul{
   padding-left: 0;
   font-size: 0.90em;
-  flex-grow: 1;
+  flex-wrap: wrap;
+  align-self: flex-start;
+  margin:0;
 }
 
 .line{
@@ -92,14 +105,14 @@ h3{
   align-items: center;
 }
 
-.logo img{
+
+.header img{
   max-width: auto;
   max-height: auto;
   width: 15px;
   height: 15px;
   border: 1px solid white;
   margin: 0 4px 0 2px;
-
 }
 
 ul{
@@ -116,15 +129,20 @@ ul li{
   margin:0;
 }
 
-.storyItems > ul li:nth-of-type(2){
+.storyItem > li:nth-of-type(2){
   align-self: baseline;
+  height: 90%;
+  color: #979692;
+  font-weight: 300;
  
 }
-.storyItems > ul li img{
-  width: auto;
-  height: auto;
-  max-width: 10px;
-  max-height: 10px;
+
+.storyItem > li:first-of-type{
+  color: #979692;
+  font-weight: 300;
+  font-size: .70em;
+  width:20px;
+  text-align: end;
 }
 
 .content > h3{
@@ -135,11 +153,53 @@ ul li{
 }
 .footer-menu >ul{
   justify-content: center;
-  font-size: 0.75em;
+  flex-wrap: wrap;
+  font-size: 0.70em;
 }
 
 .footer div:nth-of-type(3){
   justify-content: center;
   display: flex;
   justify-content: center;
+  margin-bottom: 5%;
+  
+}
+
+.search label{
+  font-size: 0.80em;
+  font-weight: 300;
+  color: #979692;
+  align-self: center;
+  margin-right: 10px;
+}
+
+.more{
+  margin-left: 4%;
+  color: #979692;
+}
+
+
+
+
+@media only screen and (min-width:768px){
+  .containerField{
+    margin:0;
+    padding:0;
+    width: 85%;
+  }
+
+  .headerItems-L{
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+  }
+  .headerItems-L h2{
+    align-self: center;
+    margin-left: 5px; 
+  }
+  .header p{
+    align-self: center;
+    margin: 0px 5px 0 0; 
+  }
 }
