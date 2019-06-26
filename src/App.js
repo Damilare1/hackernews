@@ -3,6 +3,7 @@ import { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import logo from "./logo.png";
+import loading from "./loading.svg"
 import { HackerNews } from "graphqlhub-schemas";
 import { GraphQLSchema, graphql } from "graphql";
 import "./App.css";
@@ -71,6 +72,7 @@ export default class App extends Component {
 
   render() {
     const { topStories, count } = this.state;
+
     return (
       <div className="body">
         <div className="containerField">
@@ -104,7 +106,7 @@ export default class App extends Component {
           </div>
           <div className="storyItems">
             <table>
-              <tbody className="story">
+           <tbody className="story">
                 {topStories.map((result, index) => (
                   <tr className="storyItem" key={index + count}>
                     <td><span>{index + count + "."}</span></td>
@@ -140,7 +142,7 @@ export default class App extends Component {
                   <td><p className="more">More</p></td>               
                 </tr>
               </tbody>
-            </table>
+           </table>
           </div>
           <div className="footer">
             <div className="line" />
