@@ -126,7 +126,7 @@ export default class App extends Component {
                       <div className="content">
                         <h3>
                           {result.title}{" "}
-                          <a href={result.url}>
+                          <a target="_blank" href={result.url}>
                             ({result.url ? this.splitURL(result.url) : ""})
                           </a>
                         </h3>
