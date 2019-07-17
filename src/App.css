@@ -33,6 +33,13 @@ table{
   table-layout: fixed;
 }
 
+.storyItems{
+  display: flex;
+  justify-content: center;
+}
+
+
+
 .storyItem > td:first-of-type{
   padding:0;
   margin: 0;

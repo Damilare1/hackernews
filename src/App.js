@@ -3,7 +3,7 @@ import { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import logo from "./logo.png";
-import loading from "./loading.svg"
+import loadingImg from "./loading.svg"
 import { HackerNews } from "graphqlhub-schemas";
 import { GraphQLSchema, graphql } from "graphql";
 import "./App.css";
@@ -15,7 +15,8 @@ export default class App extends Component {
     this.state = {
       topStories: [],
       offset: 1,
-      count: ""
+      count: "",
+      loading: true,
     };
     this.splitURL = this.splitURL.bind(this);
     this.getTime = this.getTime.bind(this);
@@ -58,6 +59,7 @@ export default class App extends Component {
     graphql(schema, query)
       .then(result => {
         this.setState({
+          loading: false,
           topStories: result.data.topStories,
           count: this.state.offset,
           offset: offsetVal + 30
@@ -66,12 +68,19 @@ export default class App extends Component {
       .catch(error => console.log(error));
   }
 
+  loadMoreData = ()=>{
+   this.setState({
+     loading: true,
+   })
+   this.loadData();
+  }
+
   componentDidMount() {
     this.loadData();
   }
 
   render() {
-    const { topStories, count } = this.state;
+    const { topStories, count, loading } = this.state;
 
     return (
       <div className="body">
@@ -105,7 +114,7 @@ export default class App extends Component {
             <p>login</p>
           </div>
           <div className="storyItems">
-            <table>
+{ (!loading)?  <table>
            <tbody className="story">
                 {topStories.map((result, index) => (
                   <tr className="storyItem" key={index + count}>
@@ -137,13 +146,13 @@ export default class App extends Component {
                     </td>
                   </tr>
                 ))}{" "}
-                <tr onClick={this.loadData}>
+                <tr onClick={this.loadMoreData}>
                   <td></td>
                   <td><p className="more">More</p></td>               
                 </tr>
               </tbody>
            </table>
-          </div>
+:<img className="loading" src={loadingImg}/>}          </div>
           <div className="footer">
             <div className="line" />
             <div className="footer-menu">
